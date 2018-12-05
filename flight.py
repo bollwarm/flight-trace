@@ -45,7 +45,7 @@ def flash(self):
         annot.remove()
     anotation_list[:]=[]
     
-    for num,annot in enumerate(js_str['acList']):
+    for num,annot in enumerate(cisinfo['acList']):
         annotation=ax.annotate('text',xy=(0,0),size='smaller')
         anotation_list.append(annotation)
 
