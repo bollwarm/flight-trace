@@ -1,6 +1,8 @@
 # flight-trace
 A Python GIS exercise,gain gaining flight data  and Draw it on the map
 
+![image](map.png)
+
 Python GIS实例编程之航班跟踪实例配套代码，原文链接为
 
 The URl link of the article is :
