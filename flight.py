@@ -19,7 +19,7 @@ track, = ax.plot([], [],'ro')
 opener = urllib.request.build_opener()
 opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 
-def update(self):
+def flash(self):
     fp=opener.open('https://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=40.09437&lng=116.98279&fDstL=0&fDstU=50')
     mybyte=fp.read()
     mystr=mybyte.decode("utf8")
@@ -56,7 +56,7 @@ def update(self):
 
     return track,ano,
 
-anim = animation.FuncAnimation(fig, update,interval=5000, blit=False)
+anim = animation.FuncAnimation(fig, flash,interval=5000, blit=False)
 
 plt.show()
 
