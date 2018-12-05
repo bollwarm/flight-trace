@@ -16,27 +16,28 @@ ax.plot([116.5946],[40.0763],'bo')
 
 track, = ax.plot([], [],'ro')
 
-opener = urllib.request.build_opener()
-opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+sop = urllib.request.build_opener()
+sop.addheaders = [('User-agent', 'Mozilla/5.0')]
 
 def flash(self):
-    fp=opener.open('https://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=40.09437&lng=116.98279&fDstL=0&fDstU=50')
-    mybyte=fp.read()
-    mystr=mybyte.decode("utf8")
-    js_str=json.loads(mystr)
+   
+    fp=sop.open('http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=40.0952&lng=116.63349&fDstL=0&fDstU=20')
+    ccbyte=fp.read()
+    jsdata=ccbyte.decode("utf8")
+    cisinfo=json.loads(jsdata)
+    fp.close()
     fp.close()
     lat_list=[]
     long_list=[]
     op_list=[]
     anotation_list=[]
-    print(js_str)
     
-    for num,flight_data in enumerate(js_str['acList']):
+    for num,flight_data in enumerate(cisinfo['acList']):
         lat=flight_data['Lat']
         lon=flight_data['Long']
         lat_list.append(lat)
         long_list.append(lon)
-        op_list.append(flight_data['Op'])
+        op_list.append(flight_data['Call'])
 
     track.set_data(long_list,lat_list)
 
