@@ -37,7 +37,7 @@ def flash(self):
         lon=flight_data['Long']
         lat_list.append(lat)
         long_list.append(lon)
-        op_list.append(flight_data['Op'])
+        op_list.append(flight_data['Call'])
 
     track.set_data(long_list,lat_list)
 
